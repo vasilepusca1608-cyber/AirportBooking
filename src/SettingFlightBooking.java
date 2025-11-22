@@ -16,6 +16,43 @@ public class SettingFlightBooking {
         System.out.println("4. Barcelona");
         System.out.println("Introduceti numarul destinatiei: ");
 
+        int destChoice = obScanner.nextInt();
+        obScanner.nextLine(); // consumăm linia
+
+        String destination = "";
+
+        switch (destChoice) {
+            case 1:
+                destination = "Paris";
+                break;
+            case 2:
+                destination = "Roma";
+                break;
+            case 3:
+                destination = "Londra";
+                break;
+            case 4:
+                destination = "Barcelona";
+                break;
+            default:
+                System.out.println("Optiune invalida!");
+                destination = "Necunoscut";
+                break;
+        }
+        String airline = "Air Moldova";
+        String seatClass = "Economy";
+        boolean hasLuggage = false;
+
+        // CREAM OBIECTUL AICI!
+
+        obScanner.close();
+
+        // TEST: afișăm rezervarea
+        System.out.println("\n--- Rezervare Creata ---");
+        System.out.println("Nume: " + flightBooking.getPassengerName());
+        System.out.println("Destinatie: " + flightBooking.getDestination());
+
+
         obScanner.close();
 
 

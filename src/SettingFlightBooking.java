@@ -5,6 +5,9 @@ public class SettingFlightBooking {
 
         Scanner obScanner           = new Scanner(System.in);
         FlightBooking flightBooking = new FlightBooking();
+        TwoLines twoLines = new TwoLines();
+        ChooseClass chooseClass = new ChooseClass();
+        boolean luggagePresence;
 
         System.out.println("Introduceti numele pasagerului: ");
         String name = obScanner.nextLine();
@@ -69,22 +72,31 @@ public class SettingFlightBooking {
                 break;
         }
 
-        String airline = "Air Moldova";
-        String seatClass = "Economy";
-        boolean hasLuggage = false;
+        twoLines.printLine();
 
-        // CREAM OBIECTUL AICI!
+        System.out.print("Do you have luggage?(true/false): ");
+        while (true) {
+            if (obScanner.hasNextBoolean()) {
+                luggagePresence = obScanner.nextBoolean();
+                break;
+            } else {
+                System.out.print("Please enter true or false: ");
+                obScanner.next();
+            }
+        }
 
-        obScanner.close();
+        System.out.println("Choose your class Business or Economy");
+        String classType = obScanner.next().replace(" ", "");
+        chooseClass.settingClass(classType.toLowerCase());
+        classType = chooseClass.finalClass;
+        twoLines.printLine();
 
         // TEST: afișăm rezervarea
         System.out.println("\n--- Rezervare Creata ---");
         System.out.println("Nume: " + flightBooking.getPassengerName());
         System.out.println("Destinatie: " + flightBooking.getDestination());
 
-
         obScanner.close();
-
 
     }
 }

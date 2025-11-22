@@ -6,8 +6,6 @@ public class SettingFlightBooking {
         Scanner obScanner           = new Scanner(System.in);
         FlightBooking flightBooking = new FlightBooking();
 
-        obScanner.close();
-
         System.out.println("Introduceti numele pasagerului: ");
         String name = obScanner.nextLine();
 
@@ -17,6 +15,8 @@ public class SettingFlightBooking {
         System.out.println("3. Londra");
         System.out.println("4. Barcelona");
         System.out.println("Introduceti numarul destinatiei: ");
+
+        obScanner.close();
 
 
     }

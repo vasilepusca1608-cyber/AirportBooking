@@ -9,18 +9,18 @@ public class SettingFlightBooking {
         ChooseClass chooseClass = new ChooseClass();
         boolean luggagePresence;
 
-        System.out.println("Introduceti numele pasagerului: ");
+        System.out.println("Enter the passengers name: ");
         String name = obScanner.nextLine();
 
-        System.out.println("Alegeti destinatia: ");
+        System.out.println("Choose the destination: ");
         System.out.println("1. Paris");
         System.out.println("2. Roma");
         System.out.println("3. Londra");
         System.out.println("4. Barcelona");
-        System.out.println("Introduceti numarul destinatiei: ");
+        System.out.println("Enter the destination name: ");
 
         int destChoice = obScanner.nextInt();
-        obScanner.nextLine(); // consumăm linia
+        obScanner.nextLine();
 
         String destination = "";
 
@@ -91,10 +91,18 @@ public class SettingFlightBooking {
         classType = chooseClass.finalClass;
         twoLines.printLine();
 
-        // TEST: afișăm rezervarea
-        System.out.println("\n--- Rezervare Creata ---");
-        System.out.println("Nume: " + flightBooking.getPassengerName());
-        System.out.println("Destinatie: " + flightBooking.getDestination());
+        flightBooking.setPassengerName(name);
+        flightBooking.setDestination(destination);
+        flightBooking.setAirline(company);
+        flightBooking.setSeatClass(classType);
+        flightBooking.setHasLuggage(luggagePresence);
+
+        System.out.println("Final booking: ");
+        System.out.println("Passenger: " + flightBooking.getPassengerName());
+        System.out.println("Destination: " + flightBooking.getDestination());
+        System.out.println("Airline: " + flightBooking.getAirline());
+        System.out.println("Class: " + flightBooking.getSeatClass());
+        System.out.println("Checked baggage: " + flightBooking.isHasLuggage());
 
         obScanner.close();
 
